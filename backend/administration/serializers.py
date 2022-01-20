@@ -4,6 +4,10 @@ from .models import User
 
 
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
+    default_error_messages = {
+        'detail': 'data'
+    }
+
     @classmethod
     def get_token(cls, user):
         token = super().get_token(user)

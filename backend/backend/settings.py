@@ -49,13 +49,14 @@ INSTALLED_APPS = [
 ]
 
 REST_FRAMEWORK = {
+    'EXCEPTION_HANDLER': 'utils.exceptionhandler.custom_exception_handler',
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     )
 }
 
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5),
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=20),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=90),
     'ROTATE_REFRESH_TOKENS': True,
     'BLACKLIST_AFTER_ROTATION': True,
@@ -125,12 +126,19 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     },
+    # 'sale': {
+    #         'ENGINE': 'django.db.backends.postgresql',
+    #         'NAME': 'postgres',
+    #         'USER': 'test1@sin-test-psql-01',
+    #         'PASSWORD': 'c6PLyvGSnvPoGWtb9zgd',
+    #         'HOST': 'sin-test-psql-01.postgres.database.azure.com'
+    #     }
     'sale': {
             'ENGINE': 'django.db.backends.postgresql',
-            'NAME': 'postgres',
-            'USER': 'test1@sin-test-psql-01',
-            'PASSWORD': 'c6PLyvGSnvPoGWtb9zgd',
-            'HOST': 'sin-test-psql-01.postgres.database.azure.com'
+            'NAME': 'brentag_demo',
+            'USER': 'postgres',
+            'PASSWORD': '1234',
+            'HOST': 'localhost'
         }
 }
 
